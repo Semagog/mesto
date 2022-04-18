@@ -9,3 +9,11 @@
   margin: 0;
   grid-area: title;
 }
+
+@media (max-width: 790px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 33px;
+    padding-top: 22px;
+  }
+}

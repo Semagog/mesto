@@ -2,4 +2,11 @@
   max-width: 124px;
   max-height: 33px;
   color: white;
+  padding-bottom: 31px;
+}
+
+@media (max-width: 930px) {
+  .header__logo {
+    padding-left: 27px;
+  }
 }

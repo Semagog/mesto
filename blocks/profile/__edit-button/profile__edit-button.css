@@ -9,5 +9,14 @@
   background-color: black;
   background-position: center;
   border: none;
-  grid-area: button;
+  grid-area: editbutton;
+}
+
+@media (max-width: 790px) {
+  .profile__edit-button {
+    min-width: 18px;
+    min-height: 18px;
+    border: 1px solid white;
+    box-sizing: border-box;
+  }
 }
