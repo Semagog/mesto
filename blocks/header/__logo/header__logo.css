@@ -2,11 +2,14 @@
   max-width: 124px;
   max-height: 33px;
   color: white;
-  padding-bottom: 31px;
+  padding-bottom: 41px;
 }
 
 @media (max-width: 930px) {
   .header__logo {
     padding-left: 27px;
+    max-width: 103px;
+    max-height: 24px;
+    padding-bottom: 31px;
   }
 }
