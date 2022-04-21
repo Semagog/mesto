@@ -1,0 +1,9 @@
+.element__like {
+    font-size: 0;
+    background-image: url(../../../images/Vector\ \(Stroke\).svg);
+    width: 22px;
+    min-height: 19px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
