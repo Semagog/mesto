@@ -1,0 +1,23 @@
+.popup__close {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  position: absolute;
+  right: -32px;
+  top: -32px;
+  background-image: url(../../../images/CloseIcon.svg);
+  font-size: 0;
+  box-shadow: 0;
+  color: white;
+  cursor: pointer;
+  border: none;
+  max-width: 32px;
+  width: 100%;
+  min-height: 32px;
+  background-color: black;
+  transition: 0.2s ease;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
