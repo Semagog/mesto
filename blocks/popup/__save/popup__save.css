@@ -1,6 +1,4 @@
 .popup__save {
-  font-family: "Inter";
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -17,4 +15,10 @@
 
 .popup__save:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 557px) {
+  .popup__save {
+    padding: 25px 22px;
+  }
 }

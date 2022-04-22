@@ -12,3 +12,10 @@
   flex-wrap: wrap;
   align-items: stretch;
 }
+
+@media (max-width: 557px) {
+  .popup__container {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+}

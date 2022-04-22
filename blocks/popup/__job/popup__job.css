@@ -1,3 +1,9 @@
 .popup__job {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 557px) {
+  .popup__job {
+    margin-bottom: 45px;
+  }
 }
