@@ -10,6 +10,12 @@
   background-position: center;
   border: none;
   grid-area: editbutton;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 790px) {

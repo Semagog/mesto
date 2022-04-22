@@ -9,12 +9,17 @@
   background-color: black;
   background-position: center;
   border: 1px white solid;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 790px) {
   .profile__add-button {
     min-width: 282px;
     background-image: url(../../../images/Add\ Button.svg);
-    /* margin: 0 60% 0; */
   }
 }
