@@ -7,7 +7,7 @@
 Проект написан с помощью HTML, CSS и немного JavaScript
 
 
-Сайт выложен в сеть [Mesto](https://github.com/Semagog/mesto.git)
+Сайт выложен в сеть [Mesto](https://semagog.github.io/mesto/)
 
 ## Планы по доработке
 
