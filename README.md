@@ -7,7 +7,7 @@
 Проект написан с помощью HTML, CSS и немного JavaScript
 
 
-Сайт выложен в сеть [Russian Travel](https://semagog.github.io/russian-travel/)
+Сайт выложен в сеть [Mesto](https://github.com/Semagog/mesto.git)
 
 ## Планы по доработке
 
