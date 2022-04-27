@@ -6,6 +6,15 @@
   justify-items: center;
   align-items: center;
   column-gap: 17px;
-  row-gap: 20px;
+  row-gap: 25px;
   padding: 0;
+}
+
+
+@media (max-width: 790px) {
+  .elements__cards
+  {
+    row-gap: 20px;
+    
+  }
 }

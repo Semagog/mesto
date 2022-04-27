@@ -9,12 +9,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-align: center;
 }
 
 @media (max-width: 790px) {
   .profile__title {
     font-size: 27px;
     line-height: 33px;
-    padding-top: 22px;
+    padding-top: 25px;
   }
 }

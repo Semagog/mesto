@@ -3,8 +3,9 @@
   grid-template-areas:
     "avatar title editbutton"
     "avatar subtitle .";
-  grid-template-columns: 170px 312px 1fr;
+  grid-template-columns: 135px 294px 1fr;
   align-items: end;
+  column-gap: 16px;
 }
 
 @media (max-width: 790px) {

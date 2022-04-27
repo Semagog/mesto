@@ -1,9 +1,20 @@
 .element {
   max-width: 282px;
+  min-height: 361px;
   overflow: hidden;
   border-radius: 5%;
-  max-height: 362px;
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
   border: 1px solid black;
 }
+
+
+/* 
+@media (max-width: 790px) {
+  .element
+  {
+  max-width: 280px;
+  min-height: 355px;
+    
+  }
+} */

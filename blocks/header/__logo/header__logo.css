@@ -1,8 +1,8 @@
 .header__logo {
-  max-width: 124px;
+  max-width: 142px;
   max-height: 33px;
   color: white;
-  padding-bottom: 41px;
+  padding-bottom: 36px;
 }
 
 @media (max-width: 930px) {
@@ -10,6 +10,6 @@
     padding-left: 27px;
     max-width: 103px;
     max-height: 24px;
-    padding-bottom: 31px;
+    padding-bottom: 27px;
   }
 }
