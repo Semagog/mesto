@@ -12,7 +12,7 @@
   max-width: 32px;
   width: 100%;
   min-height: 32px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
   transition: 0.2s ease;
   background-repeat: no-repeat;
 }
