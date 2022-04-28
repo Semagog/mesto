@@ -17,7 +17,7 @@
             <img class="profile__avatar" src="./images/avatar.png" alt="автар">
              <h1 class="profile__title">Жак-Ив Кусто</h1>
             <p class="profile__subtitle">Исследователь океана</p>
-            <button type="button" class="profile__edit-button">Редактировать</button>
+            <button type="button" aria-label="открывает редактирование значений профиля, появляется диалоговое окно, где можно ввести новые данные." class="profile__edit-button">Редактировать</button>
         </div>
         <button class="profile__add-button" type="button">Добавить</button>
         </section>
@@ -74,10 +74,10 @@
     <div class="popup">
         <form name="popupForm" class="popup__container" action="" method="post">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="popupGapNameEdit" class="popup__input popup__input_gap_name" type="text" placeholder= "Имя">
-            <input name="popupGapJobEdit" class="popup__input popup__input_gap_job" type="text" placeholder = "Описание">
-            <button class="popup__save"  type="submit" value="save">Сохранить</button>
-            <button class="popup__close" type="button" value="close">Закрыть</button>
+            <input name="popupGapNameEdit" value=""  class="popup__input popup__input_gap_name" type="text" placeholder= "Имя">
+            <input name="popupGapJobEdit" value=""  class="popup__input popup__input_gap_job" type="text" placeholder = "Описание">
+            <button class="popup__save" aria-label="перезаписывает данные в профиле и закрывает попап." type="submit" value="save">Сохранить</button>
+            <button class="popup__close" aria-label="закрывает попап и не перезаписывает данные в профиле" type="button" value="close">Закрыть</button>
         </form>
     </div>
 <script src="./scripts/index.js"></script>
