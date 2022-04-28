@@ -11,11 +11,8 @@
   list-style-type: none;
 }
 
-
 @media (max-width: 790px) {
-  .elements__cards
-  {
+  .elements__cards {
     row-gap: 20px;
-    
   }
 }

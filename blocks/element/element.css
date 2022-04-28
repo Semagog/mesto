@@ -7,14 +7,3 @@
   box-sizing: border-box;
   border: 1px solid black;
 }
-
-
-/* 
-@media (max-width: 790px) {
-  .element
-  {
-  max-width: 280px;
-  min-height: 355px;
-    
-  }
-} */
