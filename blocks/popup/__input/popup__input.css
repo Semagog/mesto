@@ -13,6 +13,7 @@
 
 @media (max-width: 557px) {
   .popup__input {
+    padding-bottom: 8px;
     max-width: 238px;
     font-size: 14px;
     line-height: 17px;

@@ -19,6 +19,9 @@
 
 @media (max-width: 557px) {
   .popup__save {
-    padding: 25px 22px;
+    max-height: 238px;
+    padding: 14px 82px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
