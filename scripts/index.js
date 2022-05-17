@@ -1,29 +1,4 @@
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
+
 // переменные для первого попапа
 const openPopupButton = document.querySelector ('.profile__edit-button');
 const popup = document.querySelector('.popup');
@@ -94,4 +69,65 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 
 
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
 
+// DOM элементы 
+
+const cardContainer = document.querySelector('.elements__cards');
+const popupAddCardForm = document.querySelector('.popup-add-card-form');
+const inputTitleAddCardForm = document.querySelector('.popupGapTitleEdit');
+const inputImageAddCardForm = document.querySelector('.popupGapImageEdit');
+
+//Обработчики событий
+const handleSubmitAddCardForm = (event) => {
+  event.preventDefault ();
+  renderCard ({name: inputTitleAddCardForm.value}, {link: inputTitleAddCardForm.value});
+  inputTitleAddCardForm.value = '';
+  inputImageAddCardForm = ' ';
+
+}
+
+//Рендер карточки
+
+const renderCard = (cardData) => {
+  cardContainer.insertAdjacentHTML('afterbegin',  `
+  <li class="element">
+    <div class="element__image" style="background-image: url('${cardData.link}');"></div>
+     <div class="element__description">
+       <h2 class="element__title">${cardData.name}</h2>
+       <button class="element__like" type="button">нравится</button>
+     </div> 
+  </li>
+  `)
+}
+
+initialCards.forEach((cardData) => {
+  renderCard(cardData);
+})
+
+popupAddCardForm.addEventListener('submit', handleSubmitAddCardForm)
