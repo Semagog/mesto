@@ -32,9 +32,8 @@ const gapInput = document.querySelector('.profile__title');
 const gapJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
 const openPopupAddCardButton = document.querySelector('.profile__add-button')
-const popupAddcardTemplate = document.querySelector('#popup-addcard-template').content;
-const popupAddCardOpen = popupAddcardTemplate.querySelector ('.popup')
-
+const popupAddCardOpen = document.querySelector('.popup-add-card')
+const popupAddCardButtonClose = document.querySelector ('.popup-add-card__close')
 // Находим форму в DOM
 const formElement = document.querySelector ('.popup__container'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
@@ -42,27 +41,36 @@ let nameInput = formElement.querySelector ('.popup__input_gap_name');  // Вос
 let jobInput =  formElement.querySelector ('.popup__input_gap_job');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
-//функция добавляет открытие форме через свойство флекс 
+//функция добавляет открытие форме в профиле через свойство флекс 
 function popupOpen () {
 popup.classList.add ('popup_opened');
 nameInput.value = gapInput.textContent;
 jobInput.value = gapJob.textContent;
 }
+//функция добавляет закрытие форме в профиле через удаление флекс 
+function popopClose ()  {
+  popup.classList.remove ('popup_opened')
+  }
+
 /// функция добавляет открытие форме добавления новой карточки через свойство флекс 
 function openPopupAddCardButtonForm () {
-  popupAddCardOpen.classList.add ('popup_opened');
+  popupAddCardOpen.classList.add ('popup-add-card_opened');
 }
 
-//функция добавляет закрытие форме через удаление флекс 
-function popopClose ()  {
-popup.classList.remove ('popup_opened')
-}
+//функция добавляет закрытие форме через удаление флекс для попапа который создает карточки
+function popopAddCardClose ()  {
+  popupAddCardOpen.classList.remove ('popup-add-card_opened')
+  }
 
 //СЛУШАТЕЛИ
+// форма в профиле
 openPopupButton.addEventListener ('click', popupOpen); 
 closePopupButton.addEventListener ('click', popopClose); 
-// второй проект
+// второй проект добавление карточки
 openPopupAddCardButton.addEventListener ('click',openPopupAddCardButtonForm);
+popupAddCardButtonClose.addEventListener('click',popopAddCardClose )
+
+
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет

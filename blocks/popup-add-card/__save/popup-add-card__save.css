@@ -1,0 +1,27 @@
+.popup-add-card__save {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 2px;
+  box-shadow: none;
+  border: none;
+  padding: 14px 125px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.popup-add-card__save:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 557px) {
+  .popup-add-card__save {
+    max-height: 238px;
+    padding: 14px 82px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

@@ -1,0 +1,9 @@
+.popup-add-card__input_gap_image {
+  margin-bottom: 48px;
+}
+
+@media (max-width: 557px) {
+  .popup-add-card__input_gap_image {
+    margin-bottom: 45px;
+  }
+}
