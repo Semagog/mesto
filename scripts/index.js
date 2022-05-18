@@ -95,9 +95,11 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ]; 
+///шаблоны 
+const cardTemplate = document.querySelector('#template-card').content.querySelector('.element');
+
 
 // DOM элементы 
-
 const cardContainer = document.querySelector('.elements__cards');
 const popupAddCardForm = document.querySelector('.popup-add-card__container');
 const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
@@ -109,21 +111,22 @@ const handleSubmitAddCardForm = (event) => {
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
   inputImageAddCardForm.value= ' ';
+}
+//Генерация карточки 
+const generateCard =  (cardData) => {
+  const newCard = cardTemplate.cloneNode(true);
+  const titleCard = newCard.querySelector('.element__title');
+  const imageCard = newCard.querySelector('.element__image');
+  titleCard.textContent = cardData.name;
+  imageCard.textContent = cardData.link;
 
+  return generateCard;
 }
 
-//Рендер карточки
 
+//Рендер карточки
 const renderCard = (cardData) => {
-  cardContainer.insertAdjacentHTML('afterbegin',  `
-  <li class="element">
-    <div class="element__image" style="background-image: url('${cardData.link}');"></div>
-     <div class="element__description">
-       <h2 class="element__title">${cardData.name}</h2>
-       <button class="element__like" type="button">нравится</button>
-     </div> 
-  </li>
-  `)
+  cardContainer.prepend(generateCard(cardData))
 }
 
 //отрисовка карточек приниает объект
