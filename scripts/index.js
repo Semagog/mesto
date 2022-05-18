@@ -99,16 +99,16 @@ const initialCards = [
 // DOM элементы 
 
 const cardContainer = document.querySelector('.elements__cards');
-const popupAddCardForm = document.querySelector('.popup-add-card-form');
-const inputTitleAddCardForm = document.querySelector('.popupGapTitleEdit');
-const inputImageAddCardForm = document.querySelector('.popupGapImageEdit');
+const popupAddCardForm = document.querySelector('.popup-add-card__container');
+const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
+const inputImageAddCardForm = document.querySelector('.popup-add-card__input_gap_image');
 
 //Обработчики событий
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault ();
-  renderCard ({name: inputTitleAddCardForm.value}, {link: inputTitleAddCardForm.value});
+  renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
-  inputImageAddCardForm = ' ';
+  inputImageAddCardForm.value= ' ';
 
 }
 
@@ -126,6 +126,7 @@ const renderCard = (cardData) => {
   `)
 }
 
+//отрисовка карточек приниает объект
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 })
