@@ -118,9 +118,8 @@ const generateCard =  (cardData) => {
   const titleCard = newCard.querySelector('.element__title');
   const imageCard = newCard.querySelector('.element__image');
   titleCard.textContent = cardData.name;
-  imageCard.textContent = cardData.link;
-
-  return generateCard;
+  imageCard.style.backgroundImage = "url('" + cardData.link + "')";
+  return newCard;
 }
 
 
