@@ -105,6 +105,7 @@ const popupAddCardForm = document.querySelector('.popup-add-card__container');
 const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
 const inputImageAddCardForm = document.querySelector('.popup-add-card__input_gap_image');
 
+
 //Обработчики событий
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault ();
@@ -118,7 +119,8 @@ const generateCard =  (cardData) => {
   const titleCard = newCard.querySelector('.element__title');
   const imageCard = newCard.querySelector('.element__image');
   titleCard.textContent = cardData.name;
-  imageCard.style.backgroundImage = "url('" + cardData.link + "')";
+  imageCard.src = cardData.link;
+  imageCard.alt = `Фото ${cardData.name}`;
   return newCard;
 }
 
