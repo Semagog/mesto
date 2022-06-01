@@ -113,14 +113,29 @@ const handleSubmitAddCardForm = (event) => {
   inputTitleAddCardForm.value = '';
   inputImageAddCardForm.value= ' ';
 }
+// обработчик который удаляет карточку 
+const handleDeleteCard = (evt) => {
+evt.target.closest('.element').remove();
+}
+
+//Обработчик который лайкает карчтоку
+const handleLikeCard  = (evt) => {
+  evt.target.closest('.element__like').classList.toggle('element__liked')
+}
+
 //Генерация карточки 
 const generateCard =  (cardData) => {
   const newCard = cardTemplate.cloneNode(true);
   const titleCard = newCard.querySelector('.element__title');
   const imageCard = newCard.querySelector('.element__image');
+  const deleteButton = newCard.querySelector('.element__delete');
+  const likeButton = newCard.querySelector('.element__like');
   titleCard.textContent = cardData.name;
   imageCard.src = cardData.link;
   imageCard.alt = `Фото ${cardData.name}`;
+  deleteButton.addEventListener('click', handleDeleteCard)
+  likeButton.addEventListener('click', handleLikeCard)
+
   return newCard;
 }
 
@@ -136,3 +151,4 @@ initialCards.forEach((cardData) => {
 })
 
 popupAddCardForm.addEventListener('submit', handleSubmitAddCardForm)
+
