@@ -122,7 +122,10 @@ evt.target.closest('.element').remove();
 const handleLikeCard  = (evt) => {
   evt.target.closest('.element__like').classList.toggle('element__liked')
 }
-
+/// обработчик событий открывет на весь экран фотку
+const handleOpenImage = (evt) => {
+  evt.target.closest('.element__image').classList.add('element__image_opened')
+}
 //Генерация карточки 
 const generateCard =  (cardData) => {
   const newCard = cardTemplate.cloneNode(true);
@@ -130,11 +133,13 @@ const generateCard =  (cardData) => {
   const imageCard = newCard.querySelector('.element__image');
   const deleteButton = newCard.querySelector('.element__delete');
   const likeButton = newCard.querySelector('.element__like');
+  
   titleCard.textContent = cardData.name;
   imageCard.src = cardData.link;
   imageCard.alt = `Фото ${cardData.name}`;
   deleteButton.addEventListener('click', handleDeleteCard)
   likeButton.addEventListener('click', handleLikeCard)
+  imageCard.addEventListener('click', handleOpenImage)
 
   return newCard;
 }
