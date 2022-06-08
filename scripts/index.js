@@ -104,14 +104,17 @@ const cardContainer = document.querySelector('.elements__cards');
 const popupAddCardForm = document.querySelector('.popup-add-card__container');
 const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
 const inputImageAddCardForm = document.querySelector('.popup-add-card__input_gap_image');
-
+const popupShowImage = document.querySelector('.popup-show-image');
+const popupShowImageSelected = document.querySelector('.popup-show-image__selected');
+const popupShowImageDescription = document.querySelector('.popup-show-image__description');
+const popupShowImageClose = document.querySelector('.popup-show-image__close');
 
 //Обработчики событий
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault ();
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
-  inputImageAddCardForm.value= ' ';
+  inputImageAddCardForm.value= '';
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
@@ -122,10 +125,19 @@ evt.target.closest('.element').remove();
 const handleLikeCard  = (evt) => {
   evt.target.closest('.element__like').classList.toggle('element__liked')
 }
-/// обработчик событий открывет на весь экран фотку
-const handleOpenImage = (evt) => {
-  evt.target.closest('.element__image').classList.add('element__image_opened')
+// обработчик событий открывет на весь экран фотку
+const handleOpenImage = (cardData) => {
+  popupShowImage.classList.add('popup-show-image_opened')
+  popupShowImageSelected.src = cardData.link; 
+  popupShowImageDescription.textContent = cardData.name;
 }
+/// закрывает открытое на весь экран изображение
+const handleCloseSelectedImage = () =>{
+  popupShowImage.classList.remove('popup-show-image_opened')
+}
+// обработчик котрый закрывает фотку на весь экран
+popupShowImageClose.addEventListener('click', handleCloseSelectedImage)
+
 //Генерация карточки 
 const generateCard =  (cardData) => {
   const newCard = cardTemplate.cloneNode(true);
@@ -139,10 +151,12 @@ const generateCard =  (cardData) => {
   imageCard.alt = `Фото ${cardData.name}`;
   deleteButton.addEventListener('click', handleDeleteCard)
   likeButton.addEventListener('click', handleLikeCard)
-  imageCard.addEventListener('click', handleOpenImage)
 
+  imageCard.addEventListener('click',  () => handleOpenImage(cardData));
+   
   return newCard;
 }
+
 
 
 //Рендер карточки
