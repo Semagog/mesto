@@ -1,3 +1,5 @@
 .popup-add-card_opened {
-  display: flex;
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
 }
