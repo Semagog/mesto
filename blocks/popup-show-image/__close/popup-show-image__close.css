@@ -20,14 +20,3 @@
 .popup-show-image__close:hover {
   opacity: 0.6;
 }
-
-/* @media (max-width: 557px) {
-    .popup__close {
-      background-image: url(../../../images/closeiconlittle.svg);
-      max-width: 20px;
-      min-height: 20px;
-      top: -35px;
-      right: 0;
-    }
-  }
-   */
