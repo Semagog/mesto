@@ -59,8 +59,8 @@ function formSubmitHandler (evt) {
     // Выберите элементы, куда должны быть вставлены значения полей
 
     // Вставьте новые значения с помощью textContent
-    gapProfileName.textContent = `${nameInput.value}`;
-    gapProfileJob.textContent = `${jobInput.value}`;
+    gapProfileName.textContent = nameInput.value;
+    gapProfileJob.textContent = jobInput.value;
     popopClose ();
    
 }
