@@ -2,9 +2,9 @@
 // переменные для первого попапа
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
 const popup = document.querySelector('.popup');
-const buttonCloseProfile = document.querySelector('.popup__close');
-const gapInput = document.querySelector('.profile__title');
-const gapJob = document.querySelector('.profile__subtitle');
+const buttonCloseProfile = popup.querySelector('.popup__close');
+const gapProfileName = document.querySelector('.profile__title');
+const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
 const buttonOpenAddCard = document.querySelector('.profile__add-button')
 const popupAddCardOpen = document.querySelector('.popup-add-card')
@@ -19,8 +19,8 @@ let jobInput =  formElement.querySelector ('.popup__input_gap_job');  // Вос�
 //функция добавляет открытие форме в профиле через свойство флекс 
 function popupOpen () {
 popup.classList.add ('popup_opened');
-nameInput.value = gapInput.textContent;
-jobInput.value = gapJob.textContent;
+nameInput.value = gapProfileName.textContent;
+jobInput.value = gapProfileJob.textContent;
 }
 //функция добавляет закрытие форме в профиле через удаление флекс 
 function popopClose ()  {
@@ -59,8 +59,8 @@ function formSubmitHandler (evt) {
     // Выберите элементы, куда должны быть вставлены значения полей
 
     // Вставьте новые значения с помощью textContent
-    gapInput.textContent = `${nameInput.value}`;
-    gapJob.textContent = `${jobInput.value}`;
+    gapProfileName.textContent = `${nameInput.value}`;
+    gapProfileJob.textContent = `${jobInput.value}`;
     popopClose ();
    
 }
