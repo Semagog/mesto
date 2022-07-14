@@ -1,12 +1,12 @@
 
 // переменные для первого попапа
-const openPopupButton = document.querySelector ('.profile__edit-button');
+const buttonEditProfile = document.querySelector ('.profile__edit-button');
 const popup = document.querySelector('.popup');
-const closePopupButton = document.querySelector('.popup__close');
+const buttonCloseProfile = document.querySelector('.popup__close');
 const gapInput = document.querySelector('.profile__title');
 const gapJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
-const openPopupAddCardButton = document.querySelector('.profile__add-button')
+const buttonOpenAddCard = document.querySelector('.profile__add-button')
 const popupAddCardOpen = document.querySelector('.popup-add-card')
 const popupAddCardButtonClose = document.querySelector ('.popup-add-card__close')
 // Находим форму в DOM
@@ -39,10 +39,10 @@ function popopAddCardClose ()  {
 
 //СЛУШАТЕЛИ
 // форма в профиле
-openPopupButton.addEventListener ('click', popupOpen); 
-closePopupButton.addEventListener ('click', popopClose); 
+buttonEditProfile.addEventListener ('click', popupOpen); 
+buttonCloseProfile.addEventListener ('click', popopClose); 
 // второй проект добавление карточки
-openPopupAddCardButton.addEventListener ('click',openPopupAddCardButtonForm);
+buttonOpenAddCard.addEventListener ('click',openPopupAddCardButtonForm);
 popupAddCardButtonClose.addEventListener('click',popopAddCardClose )
 
 
