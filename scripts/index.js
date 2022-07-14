@@ -12,8 +12,8 @@ const popupAddCardButtonClose = document.querySelector ('.popup-add-card__close'
 // Находим форму в DOM
 const formElement = document.querySelector ('.popup__container'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = formElement.querySelector ('.popup__input_gap_name');  // Воспользуйтесь инструментом .querySelector()
-let jobInput =  formElement.querySelector ('.popup__input_gap_job');  // Воспользуйтесь инструментом .querySelector()
+const nameInput = formElement.querySelector ('.popup__input_gap_name');  // Воспользуйтесь инструментом .querySelector()
+const jobInput =  formElement.querySelector ('.popup__input_gap_job');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
 //функция добавляет открытие форме в профиле через свойство флекс 
