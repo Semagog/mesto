@@ -1,4 +1,29 @@
-
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
 // переменные для первого попапа
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
 const popup = document.querySelector('.popup');
@@ -69,38 +94,13 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-]; 
+
 ///шаблоны 
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element');
 
 
 // DOM элементы 
-const cardContainer = document.querySelector('.elements__cards');
+const cardsContainer = document.querySelector('.elements__cards');
 const popupAddCardForm = document.querySelector('.popup-add-card__container');
 const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
 const inputImageAddCardForm = document.querySelector('.popup-add-card__input_gap_image');
@@ -115,6 +115,7 @@ const handleSubmitAddCardForm = (event) => {
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
   inputImageAddCardForm.value= '';
+  popopAddCardClose ()
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
@@ -123,8 +124,10 @@ evt.target.closest('.element').remove();
 
 //Обработчик который лайкает карчтоку
 const handleLikeCard  = (evt) => {
-  evt.target.closest('.element__like').classList.toggle('element__liked')
+  evt.target.classList.toggle('element__liked');
 }
+
+
 // обработчик событий открывет на весь экран фотку
 const handleOpenImage = (cardData) => {
   popupShowImage.classList.add('popup-show-image_opened')
@@ -161,7 +164,7 @@ const generateCard =  (cardData) => {
 
 //Рендер карточки
 const renderCard = (cardData) => {
-  cardContainer.prepend(generateCard(cardData))
+  cardsContainer.prepend(generateCard(cardData))
 }
 
 //отрисовка карточек приниает объект
