@@ -25,20 +25,20 @@ const initialCards = [
   }
 ]; 
 // переменные для первого попапа
+const popup = document.querySelector('.popup_profile');
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
-const popup = document.querySelector('.popup');
-const buttonCloseProfile = popup.querySelector('.popup__close');
+const buttonCloseProfile = popup.querySelector('.popup_profile-close');
 const gapProfileName = document.querySelector('.profile__title');
 const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
 const buttonOpenAddCard = document.querySelector('.profile__add-button')
-const popupAddCardOpen = document.querySelector('.popup-add-card')
-const popupAddCardButtonClose = document.querySelector ('.popup-add-card__close')
+const popupAddCardOpen = document.querySelector('.popup_add-card')
+const popupAddCardButtonClose = document.querySelector ('.popup_add-card-close')
 // Находим форму в DOM
-const formElement = document.querySelector ('.popup__container'); // Воспользуйтесь методом querySelector()
+const formElement = document.querySelector ('.popup__container_profile'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-const nameInput = formElement.querySelector ('.popup__input_gap_name');  // Воспользуйтесь инструментом .querySelector()
-const jobInput =  formElement.querySelector ('.popup__input_gap_job');  // Воспользуйтесь инструментом .querySelector()
+const nameInput = formElement.querySelector ('.popup_profile-input-name');  // Воспользуйтесь инструментом .querySelector()
+const jobInput =  formElement.querySelector ('.popup_profile-input-job');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
 //функция добавляет открытие форме в профиле через свойство флекс 
@@ -54,12 +54,12 @@ function popopClose ()  {
 
 /// функция добавляет открытие форме добавления новой карточки через свойство флекс 
 function openPopupAddCardButtonForm () {
-  popupAddCardOpen.classList.add ('popup-add-card_opened');
+  popupAddCardOpen.classList.add ('popup_opened');
 }
 
 //функция добавляет закрытие форме через удаление флекс для попапа который создает карточки
 function popopAddCardClose ()  {
-  popupAddCardOpen.classList.remove ('popup-add-card_opened')
+  popupAddCardOpen.classList.remove ('popup_opened')
   }
 
 //СЛУШАТЕЛИ
@@ -101,9 +101,9 @@ const cardTemplate = document.querySelector('#template-card').content.querySelec
 
 // DOM элементы 
 const cardsContainer = document.querySelector('.elements__cards');
-const popupAddCardForm = document.querySelector('.popup-add-card__container');
-const inputTitleAddCardForm = document.querySelector('.popup-add-card__input_gap_title');
-const inputImageAddCardForm = document.querySelector('.popup-add-card__input_gap_image');
+const popupAddCardForm = document.querySelector('.popup_add-card-container');
+const inputTitleAddCardForm = document.querySelector('.popup_add-card-input-title');
+const inputImageAddCardForm = document.querySelector('.popup_add-card-input-image');
 const popupShowImage = document.querySelector('.popup-show-image');
 const popupShowImageSelected = document.querySelector('.popup-show-image__selected');
 const popupShowImageDescription = document.querySelector('.popup-show-image__description');

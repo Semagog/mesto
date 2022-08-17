@@ -39,22 +39,22 @@
     <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
-        <form name="popupForm" class="popup__container" method="post">
+    <div class="popup popup_profile">
+        <form name="popupForm" class="popup__container popup__container_profile" method="post">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="popupGapNameEdit" value=""  class="popup__input popup__input_gap_name" type="text" placeholder= "Имя">
-            <input name="popupGapJobEdit" value=""  class="popup__input popup__input_gap_job" type="text" placeholder = "Описание">
+            <input name="popupGapNameEdit" value=""  class="popup__input popup_profile-input-name" type="text" placeholder= "Имя">
+            <input name="popupGapJobEdit" value=""  class="popup__input popup_profile-input-job" type="text" placeholder = "Описание">
             <button class="popup__save" aria-label="перезаписывает данные в профиле и закрывает попап." type="submit" value="save">Сохранить</button>
-            <button class="popup__close" aria-label="закрывает попап и не перезаписывает данные в профиле" type="button" value="close">Закрыть</button>
+            <button class="popup__close popup_profile-close" aria-label="закрывает попап и не перезаписывает данные в профиле" type="button" value="close">Закрыть</button>
         </form>
     </div>
-    <div class="popup-add-card">
-        <form name="popup-add-card-form" class="popup-add-card__container" method="post">
-             <h2 class="popup-add-card__title">Новое место</h2>
-            <input name="popupGapTitleEdit" value= ""  class="popup-add-card__input popup-add-card__input_gap_title" type="text" placeholder= "Название">
-            <input name="popupGapImageEdit" value= ""  class="popup-add-card__input popup-add-card__input_gap_image" type="url" placeholder = "Ссылка на картинку">
-            <button class="popup-add-card__save" aria-label="сохраняет вводимые значения и публикует карточку" type="submit" value="save">Создать</button>
-            <button class="popup-add-card__close" aria-label="закрывает форму создани карточки" type="button" value="close">Закрыть</button>
+    <div class="popup popup_add-card">
+        <form name="popup-add-card-form" class="popup__container popup_add-card-container" method="post">
+            <h2 class="popup__title">Новое место</h2>
+            <input name="popupGapTitleEdit" value= ""  class="popup__input popup_add-card-input-title" type="text" placeholder= "Название">
+            <input name="popupGapImageEdit" value= ""  class="popup__input popup_add-card-input-image" type="url" placeholder = "Ссылка на картинку">
+            <button class="popup__save" aria-label="сохраняет вводимые значения и публикует карточку" type="submit" value="save">Создать</button>
+            <button class="popup__close popup_add-card-close" aria-label="закрывает форму создани карточки" type="button" value="close">Закрыть</button>
         </form>
     </div>
     <div class="popup-show-image">
