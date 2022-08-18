@@ -128,6 +128,7 @@ const handleLikeCard  = (evt) => {
 const handleOpenImage = (cardData) => {
   popupShowImage.classList.add('popup-show-image_opened')
   popupShowImageSelected.src = cardData.link; 
+  popupShowImageSelected.alt = cardData.name;
   popupShowImageDescription.textContent = cardData.name;
 }
 /// закрывает открытое на весь экран изображение
