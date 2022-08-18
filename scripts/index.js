@@ -47,20 +47,16 @@ popup.classList.add ('popup_opened');
 nameInput.value = gapProfileName.textContent;
 jobInput.value = gapProfileJob.textContent;
 }
-//функция добавляет закрытие форме в профиле через удаление флекс 
+//функция добавляет закрытие форме в профиле через удаление флекс  у 2х поп ап
 function popopClose ()  {
   popup.classList.remove ('popup_opened')
   }
 
 /// функция добавляет открытие форме добавления новой карточки через свойство флекс 
 function openPopupAddCardButtonForm () {
-  popupAddCardOpen.classList.add ('popup_opened');
+  popup.classList.add ('popup_opened');
 }
 
-//функция добавляет закрытие форме через удаление флекс для попапа который создает карточки
-function popopAddCardClose ()  {
-  popupAddCardOpen.classList.remove ('popup_opened')
-  }
 
 //СЛУШАТЕЛИ
 // форма в профиле
@@ -68,7 +64,7 @@ buttonEditProfile.addEventListener ('click', popupOpen);
 buttonCloseProfile.addEventListener ('click', popopClose); 
 // второй проект добавление карточки
 buttonOpenAddCard.addEventListener ('click',openPopupAddCardButtonForm);
-popupAddCardButtonClose.addEventListener('click',popopAddCardClose )
+popupAddCardButtonClose.addEventListener('click',popopClose)
 
 
 
