@@ -25,9 +25,9 @@ const initialCards = [
   }
 ]; 
 // переменные для первого попапа
-const popup = document.querySelector('.popup_profile');
+const profilePopup = document.querySelector('.popup_profile');
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
-const buttonCloseProfile = popup.querySelector('.popup__close_profile');
+const buttonCloseProfile = profilePopup.querySelector('.popup__close_profile');
 const gapProfileName = document.querySelector('.profile__title');
 const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
@@ -35,21 +35,21 @@ const buttonOpenAddCard = document.querySelector('.profile__add-button')
 const popupAddCardOpen = document.querySelector('.popup_add-card')
 const popupAddCardButtonClose = document.querySelector ('.popup__close_addcard')
 // Находим форму в DOM
-const formElement = document.querySelector ('.popup__container_type_profile'); // Воспользуйтесь методом querySelector()
+const profileForm = document.querySelector ('.popup__container_type_profile'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-const nameInput = formElement.querySelector ('.popup__input_profilename');  // Воспользуйтесь инструментом .querySelector()
-const jobInput =  formElement.querySelector ('.popup__input_profilejob');  // Воспользуйтесь инструментом .querySelector()
+const nameInput = profileForm.querySelector ('.popup__input_profilename');  // Воспользуйтесь инструментом .querySelector()
+const jobInput =  profileForm.querySelector ('.popup__input_profilejob');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
 //функция добавляет открытие форме в профиле через свойство флекс 
 function popupOpen () {
-popup.classList.add ('popup_opened');
+profilePopup.classList.add ('popup_opened');
 nameInput.value = gapProfileName.textContent;
 jobInput.value = gapProfileJob.textContent;
 }
 //функция добавляет закрытие форме в профиле через удаление флекс  у 2х поп ап
 function popopClose ()  {
-  popup.classList.remove ('popup_opened')
+  profilePopup.classList.remove ('popup_opened')
   }
 
   function popopAddCardClose () {
@@ -91,7 +91,7 @@ function formSubmitHandler (evt) {
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+profileForm.addEventListener('submit', formSubmitHandler);
 
 
 
