@@ -105,8 +105,8 @@ const popupAddCardForm = document.querySelector('.popup__container_type_add-card
 const inputTitleAddCardForm = document.querySelector('.popup__input_titleaddcard');
 const inputImageAddCardForm = document.querySelector('.popup__input_imageaddcard');
 const popupShowImage = document.querySelector('.popup-show-image');
-const popupShowImageSelected = document.querySelector('.popup-show-image__selected');
-const popupShowImageDescription = document.querySelector('.popup-show-image__description');
+const popupShowImageSelected = document.querySelector('.popup__image-selected');
+const popupShowImageDescription = document.querySelector('.popup__description');
 const popupShowImageClose = document.querySelector('.popup-show-image__close');
 
 //Обработчики событий
@@ -130,14 +130,14 @@ const handleLikeCard  = (evt) => {
 
 // обработчик событий открывет на весь экран фотку
 const handleOpenImage = (cardData) => {
-  popupShowImage.classList.add('popup-show-image_opened')
+  popupShowImage.classList.add('popup_opened')
   popupShowImageSelected.src = cardData.link; 
   popupShowImageSelected.alt = cardData.name;
   popupShowImageDescription.textContent = cardData.name;
 }
 /// закрывает открытое на весь экран изображение
 const handleCloseSelectedImage = () =>{
-  popupShowImage.classList.remove('popup-show-image_opened')
+  popupShowImage.classList.remove('popup_opened')
 }
 // обработчик котрый закрывает фотку на весь экран
 popupShowImageClose.addEventListener('click', handleCloseSelectedImage)
