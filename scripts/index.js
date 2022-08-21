@@ -52,9 +52,13 @@ function popopClose ()  {
   popup.classList.remove ('popup_opened')
   }
 
+  function popopAddCardClose () {
+    popupAddCardOpen.classList.remove('popup_opened')
+  }
+
 /// функция добавляет открытие форме добавления новой карточки через свойство флекс 
 function openPopupAddCardButtonForm () {
-  popup.classList.add ('popup_opened');
+  popupAddCardOpen.classList.add ('popup_opened');
 }
 
 
@@ -64,7 +68,7 @@ buttonEditProfile.addEventListener ('click', popupOpen);
 buttonCloseProfile.addEventListener ('click', popopClose); 
 // второй проект добавление карточки
 buttonOpenAddCard.addEventListener ('click',openPopupAddCardButtonForm);
-popupAddCardButtonClose.addEventListener('click',popopClose)
+popupAddCardButtonClose.addEventListener('click',popopAddCardClose)
 
 
 
