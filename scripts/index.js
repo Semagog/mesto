@@ -27,18 +27,18 @@ const initialCards = [
 // переменные для первого попапа
 const popup = document.querySelector('.popup_profile');
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
-const buttonCloseProfile = popup.querySelector('.popup__buttonclose_profile');
+const buttonCloseProfile = popup.querySelector('.popup__close_profile');
 const gapProfileName = document.querySelector('.profile__title');
 const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
 const buttonOpenAddCard = document.querySelector('.profile__add-button')
 const popupAddCardOpen = document.querySelector('.popup_add-card')
-const popupAddCardButtonClose = document.querySelector ('.popup__buttonclose_type_addcard')
+const popupAddCardButtonClose = document.querySelector ('.popup__close_addcard')
 // Находим форму в DOM
 const formElement = document.querySelector ('.popup__container_type_profile'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-const nameInput = formElement.querySelector ('.popup__inputname_profile');  // Воспользуйтесь инструментом .querySelector()
-const jobInput =  formElement.querySelector ('.popup__inputjob_profile');  // Воспользуйтесь инструментом .querySelector()
+const nameInput = formElement.querySelector ('.popup__input_profilename');  // Воспользуйтесь инструментом .querySelector()
+const jobInput =  formElement.querySelector ('.popup__input_profilejob');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
 //функция добавляет открытие форме в профиле через свойство флекс 
@@ -102,8 +102,8 @@ const cardTemplate = document.querySelector('#template-card').content.querySelec
 // DOM элементы 
 const cardsContainer = document.querySelector('.elements__cards');
 const popupAddCardForm = document.querySelector('.popup__container_type_add-card');
-const inputTitleAddCardForm = document.querySelector('.popup__inputtitle_type_addcard');
-const inputImageAddCardForm = document.querySelector('.popup__inputimage_type_addcard');
+const inputTitleAddCardForm = document.querySelector('.popup__input_titleaddcard');
+const inputImageAddCardForm = document.querySelector('.popup__input_imageaddcard');
 const popupShowImage = document.querySelector('.popup-show-image');
 const popupShowImageSelected = document.querySelector('.popup-show-image__selected');
 const popupShowImageDescription = document.querySelector('.popup-show-image__description');
