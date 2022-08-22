@@ -61,13 +61,13 @@ jobInput.value = gapProfileJob.textContent;
 //СЛУШАТЕЛИ
 // Слушатели в форме в Profile
 buttonEditProfile.addEventListener ('click', saveInputDataProfile); 
-buttonCloseProfile.addEventListener ('click', function () {
+buttonCloseProfile.addEventListener ('click', () =>  {
   closePopup(profilePopup);
 }); 
 
 // Слушатели формы addCard 
-buttonOpenAddCard.addEventListener ('click',function () {openPopup(popupAddCardOpen)});
-popupAddCardButtonClose.addEventListener('click', function () {
+buttonOpenAddCard.addEventListener ('click',() =>  {openPopup(popupAddCardOpen)});
+popupAddCardButtonClose.addEventListener('click',() =>  {
   closePopup(popupAddCardOpen);
 }); 
 
@@ -131,12 +131,10 @@ const handleOpenImage = (cardData) => {
   popupShowImageSelected.alt = cardData.name;
   popupShowImageDescription.textContent = cardData.name;
 }
-/// закрывает открытое на весь экран изображение
-const handleCloseSelectedImage = () =>{
-  popupShowImage.classList.remove('popup_opened')
-}
+
 // обработчик котрый закрывает фотку на весь экран
-popupShowImageClose.addEventListener('click', handleCloseSelectedImage)
+popupShowImageClose.addEventListener('click', () => {
+  closePopup(popupShowImage)});
 
 //Генерация карточки 
 const generateCard =  (cardData) => {
