@@ -74,7 +74,7 @@ popupAddCardButtonClose.addEventListener('click',() =>  {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function formSubmitHandler (evt) {
+function handleProfileFormSubmit (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 
     // Получите значение полей jobInput и nameInput из свойства value
@@ -87,7 +87,7 @@ function formSubmitHandler (evt) {
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-profileForm.addEventListener('submit', formSubmitHandler);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 
 
