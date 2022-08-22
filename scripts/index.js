@@ -41,53 +41,49 @@ const nameInput = profileForm.querySelector ('.popup__input_profilename');  // �
 const jobInput =  profileForm.querySelector ('.popup__input_profilejob');  // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
-//функция добавляет открытие форме в профиле через свойство флекс 
-function popupOpen () {
-profilePopup.classList.add ('popup_opened');
+// Общая функция для открытия и закрытия поп ап
+
+function openPopup (popup) {
+  popup.classList.add('popup_opened')
+}
+
+function closePopup (popup) {
+  popup.classList.remove('popup_opened')
+}
+
+//Функции частная для Profile Popup
+function saveInputDataProfile () {
+openPopup(profilePopup);
 nameInput.value = gapProfileName.textContent;
 jobInput.value = gapProfileJob.textContent;
 }
-//функция добавляет закрытие форме в профиле через удаление флекс  у 2х поп ап
-function popopClose ()  {
-  profilePopup.classList.remove ('popup_opened')
-  }
-
-  function popopAddCardClose () {
-    popupAddCardOpen.classList.remove('popup_opened')
-  }
-
-/// функция добавляет открытие форме добавления новой карточки через свойство флекс 
-function openPopupAddCardButtonForm () {
-  popupAddCardOpen.classList.add ('popup_opened');
-}
-
 
 //СЛУШАТЕЛИ
-// форма в профиле
-buttonEditProfile.addEventListener ('click', popupOpen); 
-buttonCloseProfile.addEventListener ('click', popopClose); 
-// второй проект добавление карточки
-buttonOpenAddCard.addEventListener ('click',openPopupAddCardButtonForm);
-popupAddCardButtonClose.addEventListener('click',popopAddCardClose)
+// Слушатели в форме в Profile
+buttonEditProfile.addEventListener ('click', saveInputDataProfile); 
+buttonCloseProfile.addEventListener ('click', function () {
+  closePopup(profilePopup);
+}); 
 
+// Слушатели формы addCard 
+buttonOpenAddCard.addEventListener ('click',function () {openPopup(popupAddCardOpen)});
+popupAddCardButtonClose.addEventListener('click', function () {
+  closePopup(popupAddCardOpen);
+}); 
 
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
-
+                                                
     // Получите значение полей jobInput и nameInput из свойства value
-
     // Выберите элементы, куда должны быть вставлены значения полей
-
     // Вставьте новые значения с помощью textContent
+
     gapProfileName.textContent = nameInput.value;
     gapProfileJob.textContent = jobInput.value;
-    popopClose ();
-   
+    closePopup(profilePopup);
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -115,7 +111,7 @@ const handleSubmitAddCardForm = (event) => {
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
   inputImageAddCardForm.value= '';
-  popopAddCardClose ()
+  closePopup(popupAddCardOpen);
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
@@ -130,7 +126,7 @@ const handleLikeCard  = (evt) => {
 
 // обработчик событий открывет на весь экран фотку
 const handleOpenImage = (cardData) => {
-  popupShowImage.classList.add('popup_opened')
+  openPopup(popupShowImage)
   popupShowImageSelected.src = cardData.link; 
   popupShowImageSelected.alt = cardData.name;
   popupShowImageDescription.textContent = cardData.name;
