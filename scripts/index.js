@@ -73,7 +73,7 @@ jobInput.value = gapProfileJob.textContent;
 buttonEditProfile.addEventListener ('click', saveInputDataProfile); 
 
 // Слушатели формы addCard 
-buttonOpenAddCard.addEventListener ('click',() =>  {openPopup(popupAddCardOpen)});
+buttonOpenAddCard.addEventListener ('click',() => {openPopup(popupAddCardOpen)});
 
 
 // Обработчик «отправки» формы, хотя пока
@@ -162,4 +162,6 @@ initialCards.forEach((cardData) => {
 })
 
 popupAddCardForm.addEventListener('submit', handleSubmitAddCardForm)
+
+
 
