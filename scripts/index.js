@@ -30,8 +30,8 @@ const buttonEditProfile = document.querySelector ('.profile__edit-button');
 const gapProfileName = document.querySelector('.profile__title');
 const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
-const buttonOpenAddCard = document.querySelector('.profile__add-button')
-const popupAddCardOpen = document.querySelector('.popup_add-card')
+const buttonOpenAddCard = document.querySelector('.profile__add-button');
+const popupAddCardOpen = document.querySelector('.popup_add-card');
 // Находим форму в DOM
 const profileForm = document.querySelector ('.popup__container_type_profile'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
@@ -42,11 +42,11 @@ const jobInput =  profileForm.querySelector ('.popup__input_profilejob');  // В
 // Общая функция для открытия и закрытия поп ап
 
 function openPopup (popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
 }
 
 function closePopup (popup) {
-  popup.classList.remove('popup_opened')
+  popup.classList.remove('popup_opened');
 }
 
 //Единая функция для закрытия поп ап
@@ -87,16 +87,15 @@ function handleProfileFormSubmit (evt) {
 
     gapProfileName.textContent = nameInput.value;
     gapProfileJob.textContent = jobInput.value;
+    closePopup(profilePopup);
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 
-
 ///шаблоны 
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element');
-
 
 // DOM элементы 
 const cardsContainer = document.querySelector('.elements__cards');
@@ -112,8 +111,7 @@ const popupShowImageDescription = document.querySelector('.popup__description');
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault ();
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
-  inputTitleAddCardForm.value = '';
-  inputImageAddCardForm.value= '';
+  event.target.reset();
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
