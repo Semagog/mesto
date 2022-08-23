@@ -112,6 +112,7 @@ const handleSubmitAddCardForm = (event) => {
   event.preventDefault ();
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   event.target.reset();
+  closePopup(popupAddCardOpen);
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
