@@ -27,13 +27,11 @@ const initialCards = [
 // переменные для первого попапа
 const profilePopup = document.querySelector('.popup_profile');
 const buttonEditProfile = document.querySelector ('.profile__edit-button');
-const buttonCloseProfile = profilePopup.querySelector('.popup__close_profile');
 const gapProfileName = document.querySelector('.profile__title');
 const gapProfileJob = document.querySelector('.profile__subtitle');
 // переменные для второго попапа
 const buttonOpenAddCard = document.querySelector('.profile__add-button')
 const popupAddCardOpen = document.querySelector('.popup_add-card')
-const popupAddCardButtonClose = document.querySelector ('.popup__close_addcard')
 // Находим форму в DOM
 const profileForm = document.querySelector ('.popup__container_type_profile'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
@@ -51,6 +49,18 @@ function closePopup (popup) {
   popup.classList.remove('popup_opened')
 }
 
+//Единая функция для закрытия поп ап
+// находим все крестики проекта по универсальному селектору
+const closeButtons = document.querySelectorAll('.popup__close');
+
+closeButtons.forEach((button) => {
+  // находим 1 раз ближайший к крестику попап 
+  const popup = button.closest('.popup');
+  // устанавливаем обработчик закрытия на крестик
+  button.addEventListener('click', () => closePopup(popup));
+});
+
+
 //Функции частная для Profile Popup
 function saveInputDataProfile () {
 openPopup(profilePopup);
@@ -61,15 +71,9 @@ jobInput.value = gapProfileJob.textContent;
 //СЛУШАТЕЛИ
 // Слушатели в форме в Profile
 buttonEditProfile.addEventListener ('click', saveInputDataProfile); 
-buttonCloseProfile.addEventListener ('click', () =>  {
-  closePopup(profilePopup);
-}); 
 
 // Слушатели формы addCard 
 buttonOpenAddCard.addEventListener ('click',() =>  {openPopup(popupAddCardOpen)});
-popupAddCardButtonClose.addEventListener('click',() =>  {
-  closePopup(popupAddCardOpen);
-}); 
 
 
 // Обработчик «отправки» формы, хотя пока
@@ -83,7 +87,6 @@ function handleProfileFormSubmit (evt) {
 
     gapProfileName.textContent = nameInput.value;
     gapProfileJob.textContent = jobInput.value;
-    closePopup(profilePopup);
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -103,7 +106,7 @@ const inputImageAddCardForm = document.querySelector('.popup__input_imageaddcard
 const popupShowImage = document.querySelector('.popup-show-image');
 const popupShowImageSelected = document.querySelector('.popup__image-selected');
 const popupShowImageDescription = document.querySelector('.popup__description');
-const popupShowImageClose = document.querySelector('.popup-show-image__close');
+
 
 //Обработчики событий
 const handleSubmitAddCardForm = (event) => {
@@ -111,7 +114,6 @@ const handleSubmitAddCardForm = (event) => {
   renderCard ({name: inputTitleAddCardForm.value, link: inputImageAddCardForm.value});
   inputTitleAddCardForm.value = '';
   inputImageAddCardForm.value= '';
-  closePopup(popupAddCardOpen);
 }
 // обработчик который удаляет карточку 
 const handleDeleteCard = (evt) => {
@@ -132,10 +134,6 @@ const handleOpenImage = (cardData) => {
   popupShowImageDescription.textContent = cardData.name;
 }
 
-// обработчик котрый закрывает фотку на весь экран
-popupShowImageClose.addEventListener('click', () => {
-  closePopup(popupShowImage)});
-
 //Генерация карточки 
 const generateCard =  (cardData) => {
   const newCard = cardTemplate.cloneNode(true);
@@ -154,8 +152,6 @@ const generateCard =  (cardData) => {
    
   return newCard;
 }
-
-
 
 //Рендер карточки
 const renderCard = (cardData) => {
