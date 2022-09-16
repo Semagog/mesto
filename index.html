@@ -43,11 +43,13 @@
         <form name="popupForm" class="popup__container popup__form popup__container_type_profile" method="post">
             <h2 class="popup__title">Редактировать профиль</h2>
         <label class="popup__label">
-            <input name="popupGapNameEdit" id="name-input" value=""  class="popup__input popup__input_profilename" type="text" placeholder= "Имя" required minlength="2" maxlength="40">
-            <span class="popup__input_type_error  popup__error_visible name-input-error">Вы пропустили это поле</span>
+            <input name="popupGapNameEdit" id="name-input" value=""  class="popup__input popup__input_type_error popup__input_profilename" type="text" placeholder= "Имя" required minlength="2" maxlength="40">
+            <span class="popup__error popup__error_visible name-input-error">Вы пропустили это поле</span>
         </label>
-            <input name="popupGapJobEdit" id="job-input" value=""  class="popup__input  popup__input_profilejob" type="text" placeholder = "Описание"required minlength="2" maxlength="200">
-            <span class="popup__input_type_error popup__error_visible job-input-error">Вы пропустили это поле</span>
+        <label class="popup__label">
+            <input name="popupGapJobEdit" id="job-input" value=""  class="popup__input popup__input_type_error  popup__input_profilejob" type="text" placeholder = "Описание"required minlength="2" maxlength="200">
+            <span class="popup__error popup__error_visible job-input-error">Вы пропустили это поле</span>
+        </label>
             <button class="popup__save popup__button popup__button_disabled" aria-label="перезаписывает данные в профиле и закрывает попап." type="submit" value="save">Сохранить</button>
             <button class="popup__close popup__close_profile" aria-label="закрывает попап и не перезаписывает данные в профиле" type="button" value="close">Закрыть</button>
         </form>

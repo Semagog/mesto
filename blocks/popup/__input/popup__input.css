@@ -9,11 +9,11 @@
   box-sizing: border-box;
   max-width: 358px;
   width: 100%;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
-.popup__input ~ .popup__input {
+/* .popup__input ~ .popup__input {
   margin-bottom: 48px;
-}
+} */
 
 @media (max-width: 557px) {
   .popup__input {
@@ -21,6 +21,6 @@
     max-width: 238px;
     font-size: 14px;
     line-height: 17px;
-    margin-bottom: 45px;
+    /* margin-bottom: 45px; */
   }
 }
