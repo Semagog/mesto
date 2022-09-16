@@ -37,6 +37,6 @@
 @import url(../blocks/element/__delete/element__delete.css);
 @import url(../blocks/element/__image/_opened/element__image_opened.css);
 @import url(../blocks/popup/__label/popup__label.css);
-
-
+@import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
 
