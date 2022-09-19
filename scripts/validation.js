@@ -38,20 +38,20 @@ function setHendlers(form, config) {
   console.log(inputs);
   // пробежимся for each что бы проверять каждую форму в момент ввода
   inputs.forEach((input) => {
-    input.addEventListener('input', function (evt) {
+    input.addEventListener('input', function () {
       // запускаем проверку инпутов
       validateInput(form, input, config)
     })
   })
 }
 
+//  проверяет валидацию для всех поп ап
 function enableValidation(config) {
   const form = Array.from(document.querySelectorAll(config.formSelector));
 
-  // form.addEventListener('submit', function (evt) {
-  //   console.log(evt);
-  //   // evt.preventDefault();
-  // });
+  form.addEventListener('submit', function () {
+    evt.preventDefault();
+  });
   setHendlers(form, config);
 }
 
