@@ -47,12 +47,13 @@ function setHendlers(form, config) {
 
 //  проверяет валидацию для всех поп ап
 function enableValidation(config) {
-  const form = Array.from(document.querySelectorAll(config.formSelector));
-
-  form.addEventListener('submit', function () {
-    evt.preventDefault();
-  });
-  setHendlers(form, config);
+  const forms = Array.from(document.querySelectorAll(config.formSelector));
+  forms.forEach((form)=> {
+    form.addEventListener('submit', function () {
+      evt.preventDefault();
+    });
+    setHendlers(form, config);
+  })
 }
 
 enableValidation(validationConfig);
