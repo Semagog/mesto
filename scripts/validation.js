@@ -10,7 +10,19 @@ const validationConfig = {
   errorClass: "popup__error_visible",
 };
 
-// функция проверят правильность феденных данных и меняет состояние кнопки
+//Меняет кнопку на доступную недоступную в зависимости от валидации
+function setButtonStates (inputs,button, config) {
+ const hasErrors = inputs.some(input => !input.validity.valid);
+ if (hasErrors) {
+  button.classList.add(validationConfig.inactiveButtonClass);
+
+ }  else {
+  button.classList.remove(validationConfig.inactiveButtonClass);
+ }
+
+}
+
+// функция проверят правильность веденных данных и меняет состояние кнопки
 function validateInput(form, input, config) {
   // создадим красную надпись внизу инпута
   const error = form.querySelector(`.${input.id}-error`);
@@ -35,11 +47,15 @@ function validateInput(form, input, config) {
 // установим обработчики для валидации попап инпут
 function setHendlers(form, config) {
   const inputs = Array.from(form.querySelectorAll(config.inputSelector));
+  // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
+  const button = form.querySelector (config.submitButtonSelector);
   // пробежимся for each что бы проверять каждую форму в момент ввода
   inputs.forEach((input) => {
     input.addEventListener('input', function () {
       // запускаем проверку инпутов
       validateInput(form, input, config)
+      // запускаем проверку кнопки
+      setButtonStates(inputs,button,config)
     })
   })
 }
