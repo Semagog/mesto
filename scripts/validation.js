@@ -24,7 +24,7 @@ function validateInput(form, input, config) {
     error.textContent = input.validationMessage;
   } else {
     //удалим красное подчеркивание если с инпутом все ок
-    input.classList.remove(config.errorClass);
+    input.classList.remove(config.inputErrorClass);
     //удалим красную надпись если с инпутом все ок
     error.classList.remove(config.errorClass);
     // сообзение с ошибкой скроем
@@ -35,7 +35,6 @@ function validateInput(form, input, config) {
 // установим обработчики для валидации попап инпут
 function setHendlers(form, config) {
   const inputs = Array.from(form.querySelectorAll(config.inputSelector));
-  console.log(inputs);
   // пробежимся for each что бы проверять каждую форму в момент ввода
   inputs.forEach((input) => {
     input.addEventListener('input', function () {
