@@ -54,15 +54,17 @@
             <button class="popup__close popup__close_profile" aria-label="закрывает попап и не перезаписывает данные в профиле" type="button" value="close">Закрыть</button>
         </form>
     </div>
-    <div class="popup popup_add-card">
+    <div class="popup popup_add-card" novalidate>
       <!-- еще не работал над этим поп ап -->
-        <form name="popup-add-card-form" class="popup__container popup__container_type_add-card" method="post">
+        <form name="popup-add-card-form" class="popup__container popup__form popup__container_type_add-card" method="post">
             <h2 class="popup__title">Новое место</h2>
             <label class="popup__label">
-                <input name="popupGapTitleEdit" value= ""  class="popup__input popup__input_titleaddcard" type="text" placeholder= "Название">
+                <input name="popupGapTitleEdit" value= "" id="title-input"  class="popup__input popup__input_titleaddcard" type="text" placeholder= "Название" minlength="2" maxlength="30" required>
+                <span class="popup__error popup__error_visible title-input-error"></span>
             </label>
             <label class="popup__label">
-                <input name="popupGapImageEdit" value= ""  class="popup__input popup__input_imageaddcard" type="url" placeholder = "Ссылка на картинку">
+                <input name="popupGapImageEdit" value= "" id="image-input"  class="popup__input popup__input_imageaddcard" type="url" placeholder = "Ссылка на картинку" required>
+                <span class="popup__error popup__error_visible image-input-error"></span>
             </label>
             <button class="popup__button" aria-label="сохраняет вводимые значения и публикует карточку" type="submit" value="save">Создать</button>
             <button class="popup__close popup__close_addcard" aria-label="закрывает форму создани карточки" type="button" value="close">Закрыть</button>

@@ -14,10 +14,14 @@ const validationConfig = {
 function setButtonStates (inputs,button, config) {
  const hasErrors = inputs.some(input => !input.validity.valid);
  if (hasErrors) {
+  button.setAttribute('disabled', true);
   button.classList.add(validationConfig.inactiveButtonClass);
+ 
 
  }  else {
+  button.removeAttribute('disabled', true);
   button.classList.remove(validationConfig.inactiveButtonClass);
+  
  }
 
 }
@@ -32,7 +36,7 @@ function validateInput(form, input, config) {
     input.classList.add(config.inputErrorClass);
     //добавим красную надпись если с инпутом все плохо
     error.classList.add(config.errorClass);
-    // сообзение с ошибкой
+    // сообщение с ошибкой
     error.textContent = input.validationMessage;
   } else {
     //удалим красное подчеркивание если с инпутом все ок
@@ -72,3 +76,38 @@ function enableValidation(config) {
 }
 
 enableValidation(validationConfig);
+
+
+
+
+
+
+
+// const formUser = document.querySelector('.popup__container_type_profile');
+
+// formUser.addEventListener('submit',sendForm);
+// formUser.addEventListener('input',handlerInputForm);
+
+// function sendForm (e) {
+// e.preventDefault();
+// const form = e.target
+
+// if (form.checkValidity ()) {
+// alert('форма валидна')
+// }else {
+//   alert('форма НЕвалидна')
+// }
+// }
+
+// function handlerInputForm (e) {
+//  const form = e.currentTarget;
+//  const submitButton = form.querySelector(.popup__button) 
+
+//  if (!form.checkValidity()) {
+
+
+
+//  }
+// }
+
+// submitButton.setAttribute('disabled', ture)
