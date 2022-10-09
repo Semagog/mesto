@@ -82,32 +82,3 @@ enableValidation(validationConfig);
 
 
 
-
-// const formUser = document.querySelector('.popup__container_type_profile');
-
-// formUser.addEventListener('submit',sendForm);
-// formUser.addEventListener('input',handlerInputForm);
-
-// function sendForm (e) {
-// e.preventDefault();
-// const form = e.target
-
-// if (form.checkValidity ()) {
-// alert('форма валидна')
-// }else {
-//   alert('форма НЕвалидна')
-// }
-// }
-
-// function handlerInputForm (e) {
-//  const form = e.currentTarget;
-//  const submitButton = form.querySelector(.popup__button) 
-
-//  if (!form.checkValidity()) {
-
-
-
-//  }
-// }
-
-// submitButton.setAttribute('disabled', ture)
