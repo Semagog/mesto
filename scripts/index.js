@@ -58,7 +58,6 @@ function closePopup(popup) {
   popup.classList.remove("popup_opened");
   //отслеживаем нажатие esc и удаляем слушатель, который был добавлен при открытии
   document.removeEventListener("keydown", closeByEscape);
-  console.log(document);
 }
 
 //Единая функция для закрытия поп ап
