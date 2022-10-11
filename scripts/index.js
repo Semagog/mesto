@@ -39,16 +39,26 @@ const nameInput = profileForm.querySelector(".popup__input_profilename"); // В�
 const jobInput = profileForm.querySelector(".popup__input_profilejob"); // Воспользуйтесь инструментом .querySelector()
 
 // ФУНКЦИИ
-/// ЭКСПЕРИМЕНТЫ
-
+// Если нажать на ESCAPE то закроем поп ап
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
 // Общая функция для открытия и закрытия поп ап
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  //добавляем слушатель, который отслеживает нажати esc
+  document.addEventListener("keydown", closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  //отслеживаем нажатие esc и удаляем слушатель, который был добавлен при открытии
+  document.removeEventListener("keydown", closeByEscape);
+  console.log(document);
 }
 
 //Единая функция для закрытия поп ап
@@ -62,13 +72,6 @@ closeButtons.forEach((button) => {
   // Если нажать на оверлей то закроем поп ап
   popup.addEventListener("click", function (e) {
     if (e.target == e.currentTarget) closePopup(popup);
-  });
-
-  // Если нажать на ESCAPE то закроем поп ап
-  window.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closePopup(popup);
-    }
   });
 
   // устанавливаем обработчик закрытия на крестик
