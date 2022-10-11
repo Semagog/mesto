@@ -41,7 +41,6 @@ const jobInput = profileForm.querySelector(".popup__input_profilejob"); // Во�
 // ФУНКЦИИ
 /// ЭКСПЕРИМЕНТЫ
 
-
 // Общая функция для открытия и закрытия поп ап
 
 function openPopup(popup) {
@@ -61,17 +60,16 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
 
   // Если нажать на оверлей то закроем поп ап
-  popup.addEventListener('click', function (e) {
-    if (e.target == e.currentTarget)
-    closePopup(popup);
-  })
+  popup.addEventListener("click", function (e) {
+    if (e.target == e.currentTarget) closePopup(popup);
+  });
 
   // Если нажать на ESCAPE то закроем поп ап
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
       closePopup(popup);
     }
-    })
+  });
 
   // устанавливаем обработчик закрытия на крестик
   button.addEventListener("click", function (e) {

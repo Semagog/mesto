@@ -1,13 +1,13 @@
 .popup__label {
-      margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .popup__label ~ .popup__label {
-    margin-bottom: 48px;
-  }
+  margin-bottom: 48px;
+}
 
-  @media (max-width: 557px) {
-    .popup__label  {
-      margin-bottom: 45px;
-    }
+@media (max-width: 557px) {
+  .popup__label {
+    margin-bottom: 45px;
   }
+}
