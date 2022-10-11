@@ -15,10 +15,10 @@ function setButtonStates(inputs, button, config) {
   const hasErrors = inputs.some((input) => !input.validity.valid);
   if (hasErrors) {
     button.setAttribute("disabled", true);
-    button.classList.add(validationConfig.inactiveButtonClass);
+    button.classList.add(config.inactiveButtonClass);
   } else {
     button.removeAttribute("disabled", true);
-    button.classList.remove(validationConfig.inactiveButtonClass);
+    button.classList.remove(config.inactiveButtonClass);
   }
 }
 
@@ -64,8 +64,8 @@ function setHendlers(form, config) {
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
   forms.forEach((form) => {
-    form.addEventListener("submit", function () {
-      evt.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
     });
     setHendlers(form, config);
   });
