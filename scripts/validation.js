@@ -18,7 +18,7 @@ function setButtonStates(inputs, button, config) {
     button.classList.add(config.inactiveButtonClass);
   } else {
     button.removeAttribute("disabled", true);
-    button.classList.remove(config.inactiveButtonClass);
+    button.classList.remove(validationConfig.inactiveButtonClass);
   }
 }
 
@@ -49,6 +49,7 @@ function setHendlers(form, config) {
   const inputs = Array.from(form.querySelectorAll(config.inputSelector));
   // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
   const button = form.querySelector(config.submitButtonSelector);
+
   // пробежимся for each что бы проверять каждую форму в момент ввода
   inputs.forEach((input) => {
     input.addEventListener("input", function () {
@@ -57,6 +58,13 @@ function setHendlers(form, config) {
       // запускаем проверку кнопки
       setButtonStates(inputs, button, config);
     });
+  });
+  /// После сабмита ловим событие ресет и ставим 0 милисекунд что бы форма стала в стоковое состояние
+  form.addEventListener("reset", () => {
+    // `setTimeout` нужен для того, чтобы дождаться очищения формы (вызов уйдет в конце стэка) и только потом вызвать `toggleButtonState`
+    setTimeout(() => {
+      setButtonStates(inputs, button, config);
+    }, 0); // достаточно указать 0 миллисекунд, чтобы после `reset` уже сработало действие
   });
 }
 
@@ -68,6 +76,7 @@ function enableValidation(config) {
       e.preventDefault();
     });
     setHendlers(form, config);
+
   });
 }
 
