@@ -56,8 +56,16 @@ const closeButtons = document.querySelectorAll(".popup__close");
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
   const popup = button.closest(".popup");
+
+  // ЭКСПЕРМИЕНТЫ
+  popup.addEventListener('click', function (e) {
+    if (e.target == e.currentTarget)
+    closePopup(popup);
+  })
   // устанавливаем обработчик закрытия на крестик
-  button.addEventListener("click", () => closePopup(popup));
+  button.addEventListener("click", function (e) {
+    closePopup(popup);
+  });
 });
 
 //Функции частная для Profile Popup
