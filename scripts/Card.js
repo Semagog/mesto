@@ -68,10 +68,23 @@ class Card {
       .querySelector(".element__like")
       .classList.toggle("element__liked");
   }
+  _handleCardRemove() {
+    this._element
+      .querySelector(".element__delete")
+      .closest(".element")
+      .remove();
+  }
   _setEventListeners() {
-    this._element.querySelector(".element__like").addEventListener("click", () => {
-      this._handleCardLike();
-    });
+    this._element
+      .querySelector(".element__like")
+      .addEventListener("click", () => {
+        this._handleCardLike();
+      });
+    this._element
+      .querySelector(".element__delete")
+      .addEventListener("click", () => {
+        this._handleCardRemove();
+      });
   }
 }
 
