@@ -32,6 +32,8 @@ initialCards.forEach((item) => {
   const card = new Card(item);
   // Создаём карточку и возвращаем наружу
   const cardElement = card.generateCard();
+  const imageCard = cardElement.querySelector(".element__image");
+ imageCard.addEventListener("click", () => handleOpenImage(item));
 
   // Добавляем в DOM
   document.querySelector(".elements__cards").prepend(cardElement);
@@ -42,11 +44,14 @@ initialCards.forEach((item) => {
 //Обработчики событий
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault();
-  const userCard = new Card({
+  const userCardData = {
     name: inputTitleAddCardForm.value,
     link: inputImageAddCardForm.value,
-  });
+  };
+  const userCard = new Card(userCardData)
   const userCardElement = userCard.generateCard();
+  const imageCard = userCardElement.querySelector(".element__image");
+  imageCard.addEventListener("click", () => handleOpenImage(userCardData));
     // Добавляем в DOM
   document.querySelector(".elements__cards").prepend(userCardElement);
   event.target.reset();
@@ -166,6 +171,7 @@ const inputTitleAddCardForm = document.querySelector(
 const inputImageAddCardForm = document.querySelector(
   ".popup__input_imageaddcard"
 );
+
 const popupShowImage = document.querySelector(".popup-show-image");
 const popupShowImageSelected = document.querySelector(".popup__image-selected");
 const popupShowImageDescription = document.querySelector(".popup__description");
