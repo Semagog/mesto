@@ -1,37 +1,11 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-class Card {
+export default class Card {
   // в конструкторе будут динамические данные,
   // для каждого экземпляра свои
-  constructor(name, link) {
+  constructor(data) {
     // name и link — приватные поля,
     // они нужны только внутри класса
-    this._name = name;
-    this._link = link;
+    this._name = data.name;
+    this._link = data.link;
   }
 
   _getTemplate() {
@@ -88,12 +62,12 @@ class Card {
   }
 }
 
-initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
-  const card = new Card(item.name, item.link);
-  // Создаём карточку и возвращаем наружу
-  const cardElement = card.generateCard();
+// initialCards.forEach((item) => {
+//   // Создадим экземпляр карточки
+//   const card = new Card(item);
+//   // Создаём карточку и возвращаем наружу
+//   const cardElement = card.generateCard();
 
-  // Добавляем в DOM
-  document.querySelector(".elements__cards").prepend(cardElement);
-});
+//   // Добавляем в DOM
+//   document.querySelector(".elements__cards").prepend(cardElement);
+// });
