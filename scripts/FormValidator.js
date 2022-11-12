@@ -10,7 +10,7 @@ export default class FormValidator {
     this._errorClass = config.errorClass;
   }
   //Меняет кнопку на доступную недоступную в зависимости от валидации
- _setButtonStates(inputs, button) {
+  _setButtonStates(inputs, button) {
     const hasErrors = inputs.some((input) => !input.validity.valid);
     if (hasErrors) {
       button.setAttribute("disabled", true);
@@ -20,12 +20,11 @@ export default class FormValidator {
       button.classList.remove(this._inactiveButtonClass);
     }
   }
-  
   // функция проверят правильность веденных данных и меняет состояние кнопки
   _validateInput(form, input) {
     // создадим красную надпись внизу инпута
     const error = form.querySelector(`.${input.id}-error`);
-  
+
     if (!input.validity.valid) {
       // добавим красную надпись если с инпутом все плохо
       input.classList.add(this._inputErrorClass);
@@ -42,19 +41,20 @@ export default class FormValidator {
       error.textContent = " ";
     }
   }
-  
+
   // установим обработчики для валидации попап инпут
   _setHendlers(form) {
     const inputs = Array.from(form.querySelectorAll(this._input));
     // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
     const button = form.querySelector(this._submit);
     // пробежимся for each что бы проверять каждую форму в момент ввода
+    let currentObject = this;
     inputs.forEach((input) => {
       input.addEventListener("input", function () {
         // запускаем проверку инпутов
-        this._validateInput(form, input);
+        currentObject._validateInput(form, input);
         // запускаем проверку кнопки
-        this._setButtonStates(inputs, button);
+        currentObject._setButtonStates(inputs, button);
       });
     });
     /// После сабмита ловим событие ресет и ставим 0 милисекунд что бы форма стала в стоковое состояние
@@ -65,7 +65,7 @@ export default class FormValidator {
       }, 0); // достаточно указать 0 миллисекунд, чтобы после `reset` уже сработало действие
     });
   }
-  
+
   //  проверяет валидацию для всех поп ап
   enableValidation() {
     const forms = Array.from(document.querySelectorAll(this._popupForm));
@@ -74,11 +74,6 @@ export default class FormValidator {
         e.preventDefault();
       });
       this._setHendlers(form);
-  
     });
   }
-  
-//   enableValidation(validationConfig);
-  
 }
-
