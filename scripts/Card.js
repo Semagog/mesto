@@ -62,12 +62,3 @@ export default class Card {
   }
 }
 
-// initialCards.forEach((item) => {
-//   // Создадим экземпляр карточки
-//   const card = new Card(item);
-//   // Создаём карточку и возвращаем наружу
-//   const cardElement = card.generateCard();
-
-//   // Добавляем в DOM
-//   document.querySelector(".elements__cards").prepend(cardElement);
-// });

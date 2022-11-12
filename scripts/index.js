@@ -1,4 +1,5 @@
 import Card from './Card.js'
+import FormValidator from './FormValidator.js'
 const initialCards = [
   {
     name: "Архыз",
@@ -25,6 +26,15 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
@@ -57,14 +67,6 @@ const handleSubmitAddCardForm = (event) => {
   event.target.reset();
   closePopup(popupAddCardOpen);
 };
-
-
-
-
-
-
-
-
 
 // переменные для первого попапа
 const profilePopup = document.querySelector(".popup_profile");
@@ -227,3 +229,7 @@ const handleOpenImage = (cardData) => {
 
 // Обработчик добавления карточки
 popupAddCardForm.addEventListener("submit", handleSubmitAddCardForm);
+
+
+const popupProfile = new FormValidator(validationConfig)
+popupProfile.enableValidation()
