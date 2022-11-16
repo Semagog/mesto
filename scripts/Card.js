@@ -50,10 +50,8 @@ export default class Card {
     this._buttonLike.classList.toggle("element__liked");
   }
   _handleCardRemove() {
-    this._element
-      .querySelector(".element__delete")
-      .closest(".element")
-      .remove();
+    this._element.remove();
+    this._element = null;
   }
   _setEventListeners() {
     this._element
