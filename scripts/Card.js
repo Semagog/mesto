@@ -23,15 +23,20 @@ export default class Card {
     return cardElement;
   }
   generateCard() {
+   
     // Запишем разметку в приватное поле _element.
     // Так у других элементов появится доступ к ней.
     this._element = this._getTemplate();
     this._setEventListeners(); // добавим обработчики
+       // добавим свойства классу
+       this._image = this._element.querySelector(".element__image");
+       this._imageTitle = this._element.querySelector(".element__title");
+       this._buttonLike =  this._element.querySelector(".element__like");
 
     // Добавим данные
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._name;
-    this._element.querySelector(".element__title").textContent = this._name;
+    this._image.src = this._link;
+    this._image.alt = this._name;
+    this._imageTitle.textContent = this._name;
     /// придумать для лайка
 
     /// придумать для удаления
@@ -42,9 +47,7 @@ export default class Card {
 
   // добавили метод _handleCardLike
   _handleCardLike() {
-    this._element
-      .querySelector(".element__like")
-      .classList.toggle("element__liked");
+    this._buttonLike.classList.toggle("element__liked");
   }
   _handleCardRemove() {
     this._element
