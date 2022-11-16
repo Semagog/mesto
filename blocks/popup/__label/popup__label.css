@@ -1,9 +1,9 @@
 .popup__label {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .popup__label ~ .popup__label {
-  margin-bottom: 48px;
+  margin-bottom: 31px;
 }
 
 @media (max-width: 557px) {
