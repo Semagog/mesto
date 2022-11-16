@@ -39,7 +39,7 @@ const validationConfig = {
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
   // Создадим экземпляр карточки
-  const card = new Card(item);
+  const card = new Card(item,'.template-card');
   // Создаём карточку и возвращаем наружу
   const cardElement = card.generateCard();
   const imageCard = cardElement.querySelector(".element__image");
@@ -57,7 +57,7 @@ const handleSubmitAddCardForm = (event) => {
     name: inputTitleAddCardForm.value,
     link: inputImageAddCardForm.value,
   };
-  const userCard = new Card(userCardData);
+  const userCard = new Card(userCardData,'.template-card');
   const userCardElement = userCard.generateCard();
   const imageCard = userCardElement.querySelector(".element__image");
   imageCard.addEventListener("click", () => handleOpenImage(userCardData));
@@ -157,9 +157,9 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 ///шаблоны
 //использовал в кард
-const cardTemplate = document
-  .querySelector("#template-card")
-  .content.querySelector(".element");
+// const cardTemplate = document
+//   .querySelector("#template-card")
+//   .content.querySelector(".element");
 
 // DOM элементы
 const cardsContainer = document.querySelector(".elements__cards");

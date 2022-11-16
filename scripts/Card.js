@@ -1,11 +1,14 @@
 export default class Card {
   // в конструкторе будут динамические данные,
   // для каждого экземпляра свои
-  constructor(data) {
+  constructor(data, templateSelector) {
     // name и link — приватные поля,
     // они нужны только внутри класса
     this._name = data.name;
     this._link = data.link;
+    this._templateSelector = templateSelector;
+    console.log(this._templateSelector)
+
   }
 
   _getTemplate() {
@@ -13,8 +16,9 @@ export default class Card {
     // const cardElement = document
     // .querySelector('.')
     const cardElement = document
-      .querySelector("#template-card")
-      .content.querySelector(".element")
+      .querySelector(this._templateSelector) // используем this._templateSelector
+      .content
+      .querySelector(".element")
       .cloneNode(true);
     return cardElement;
   }
