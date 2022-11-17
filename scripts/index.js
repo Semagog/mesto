@@ -38,7 +38,7 @@ const validationConfig = {
 
 const container = document.querySelector(".elements__cards");
 function generateCard(item) {
-  const card = new Card(item, ".template-card");
+  const card = new Card(item, ".template-card",handleOpenImage);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -184,13 +184,19 @@ const popupShowImageSelected = document.querySelector(".popup__image-selected");
 const popupShowImageDescription = document.querySelector(".popup__description");
 
 // обработчик событий открывет на весь экран фотку
-const handleOpenImage = (cardData) => {
-  openPopup(popupShowImage);
-  popupShowImageSelected.src = cardData.link;
-  popupShowImageSelected.alt = cardData.name;
-  popupShowImageDescription.textContent = cardData.name;
-};
+// export const handleOpenImage = (cardData) => {
+//   openPopup(popupShowImage);
+//   popupShowImageSelected.src = cardData.link;
+//   popupShowImageSelected.alt = cardData.name;
+//   popupShowImageDescription.textContent = cardData.name;
+// };
 
+export function handleOpenImage(link, name){
+  openPopup(popupShowImage);
+  popupShowImageSelected.src = link;
+  popupShowImageSelected.alt = name;
+  popupShowImageDescription.textContent = name;
+}
 // Обработчик добавления карточки
 popupAddCardForm.addEventListener("submit", handleSubmitAddCardForm);
 

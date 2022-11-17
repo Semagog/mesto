@@ -1,12 +1,14 @@
+import  {handleOpenImage}  from './index.js'
 export default class Card {
   // в конструкторе будут динамические данные,
   // для каждого экземпляра свои
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector,handleOpenImage) {
     // name и link — приватные поля,
     // они нужны только внутри класса
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleOpenImage = handleOpenImage;
   }
 
   _getTemplate() {
@@ -41,7 +43,9 @@ export default class Card {
     // Вернём элемент наружу
     return this._element;
   }
+_openBigImage () {
 
+}
   // добавили метод _handleCardLike
   _handleCardLike() {
     this._buttonLike.classList.toggle("element__liked");
@@ -57,5 +61,8 @@ export default class Card {
     this._buttonDelete.addEventListener("click", () => {
       this._handleCardRemove();
     });
+    this._image.addEventListener("click",() =>{
+      this._handleOpenImage(this._link, this._name);
+    })
   }
 }
