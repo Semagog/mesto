@@ -36,17 +36,22 @@ const validationConfig = {
   errorClass: "popup__error_visible",
 };
 
+const container = document.querySelector(".elements__cards");
+function generateCard(item) {
+  const card = new Card(item, ".template-card");
+  const cardElement = card.generateCard();
+  return cardElement;
+}
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
-  const card = new Card(item,'.template-card');
-  // Создаём карточку и возвращаем наружу
-  const cardElement = card.generateCard();
-  const imageCard = cardElement.querySelector(".element__image");
-  imageCard.addEventListener("click", () => handleOpenImage(item));
-
+  // // Создадим экземпляр карточки
+  // const card = new Card(item,'.template-card');
+  // // Создаём карточку и возвращаем наружу
+  // const cardElement = card.generateCard();
+  // const imageCard = cardElement.querySelector(".element__image");
+  // imageCard.addEventListener("click", () => handleOpenImage(item));
   // Добавляем в DOM
-  document.querySelector(".elements__cards").prepend(cardElement);
+  container.prepend(generateCard(item));
 });
 
 // Добавляет карточку из полей формы добавления
@@ -57,12 +62,13 @@ const handleSubmitAddCardForm = (event) => {
     name: inputTitleAddCardForm.value,
     link: inputImageAddCardForm.value,
   };
-  const userCard = new Card(userCardData,'.template-card');
-  const userCardElement = userCard.generateCard();
-  const imageCard = userCardElement.querySelector(".element__image");
-  imageCard.addEventListener("click", () => handleOpenImage(userCardData));
+  // const userCard = new Card(userCardData,'.template-card');
+  // const userCardElement = userCard.generateCard();
+  generateCard(userCardData);
+  // const imageCard = userCardElement.querySelector(".element__image");
+  // imageCard.addEventListener("click", () => handleOpenImage(userCardData));
   // Добавляем в DOM
-  document.querySelector(".elements__cards").prepend(userCardElement);
+  container.prepend(generateCard(userCardData));
   event.target.reset();
   closePopup(popupAddCardOpen);
 };
