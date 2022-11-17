@@ -21,30 +21,17 @@ export default class FormValidator {
       button.classList.remove(this._inactiveButtonClass);
     }
   }
-  // функция проверят правильность веденных данных и меняет состояние кнопки
+  // функция проверят правильность веденных данных
   _validateInput(form, input) {
-    // создадим красную надпись внизу инпута
-    const error = form.querySelector(`.${input.id}-error`);
-
     if (!input.validity.valid) {
-      this._showError(form, input, error)
-      // // добавим красную надпись если с инпутом все плохо
-      // input.classList.add(this._inputErrorClass);
-      // //добавим красную надпись если с инпутом все плохо
-      // error.classList.add(this._errorClass);
-      // // сообщение с ошибкой
-      // error.textContent = input.validationMessage;
+      this._showError(form, input);
     } else {
-      this._hideError (form, input,error)
-      // //удалим красное подчеркивание если с инпутом все ок
-      // input.classList.remove(this._inputErrorClass);
-      // //удалим красную надпись если с инпутом все ок
-      // error.classList.remove(this._errorClass);
-      // // сообзение с ошибкой скроем
-      // error.textContent = " ";
+      this._hideError(form, input);
     }
   }
-  _showError(form, input,error) {
+  _showError(form, input) {
+    // создадим красную надпись внизу инпута
+    const error = form.querySelector(`.${input.id}-error`);
     // добавим красную надпись если с инпутом все плохо
     input.classList.add(this._inputErrorClass);
     //добавим красную надпись если с инпутом все плохо
@@ -53,16 +40,16 @@ export default class FormValidator {
     error.textContent = input.validationMessage;
   }
 
-  _hideError (form, input,error) {
+  _hideError(form, input) {
+    // создадим красную надпись внизу инпута
+    const error = form.querySelector(`.${input.id}-error`);
     //удалим красное подчеркивание если с инпутом все ок
     input.classList.remove(this._inputErrorClass);
     //удалим красную надпись если с инпутом все ок
     error.classList.remove(this._errorClass);
     // сообзение с ошибкой скроем
     error.textContent = " ";
-
   }
-  
 
   // установим обработчики для валидации попап инпут
   _setHendlers(form) {
