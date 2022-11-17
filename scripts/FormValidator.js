@@ -1,13 +1,14 @@
 // включение валидации вызовом enableValidation
 // все настройки передаются при вызове
 export default class FormValidator {
-  constructor(config) {
+  constructor(config, formElement) {
     this._popupForm = config.formSelector;
     this._input = config.inputSelector;
     this._submit = config.submitButtonSelector;
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
+    this._formElement = formElement;
   }
   //Меняет кнопку на доступную недоступную в зависимости от валидации
   _setButtonStates(inputs, button) {
@@ -26,21 +27,42 @@ export default class FormValidator {
     const error = form.querySelector(`.${input.id}-error`);
 
     if (!input.validity.valid) {
-      // добавим красную надпись если с инпутом все плохо
-      input.classList.add(this._inputErrorClass);
-      //добавим красную надпись если с инпутом все плохо
-      error.classList.add(this._errorClass);
-      // сообщение с ошибкой
-      error.textContent = input.validationMessage;
+      this._showError(form, input, error)
+      // // добавим красную надпись если с инпутом все плохо
+      // input.classList.add(this._inputErrorClass);
+      // //добавим красную надпись если с инпутом все плохо
+      // error.classList.add(this._errorClass);
+      // // сообщение с ошибкой
+      // error.textContent = input.validationMessage;
     } else {
-      //удалим красное подчеркивание если с инпутом все ок
-      input.classList.remove(this._inputErrorClass);
-      //удалим красную надпись если с инпутом все ок
-      error.classList.remove(this._errorClass);
-      // сообзение с ошибкой скроем
-      error.textContent = " ";
+      this._hideError (form, input,error)
+      // //удалим красное подчеркивание если с инпутом все ок
+      // input.classList.remove(this._inputErrorClass);
+      // //удалим красную надпись если с инпутом все ок
+      // error.classList.remove(this._errorClass);
+      // // сообзение с ошибкой скроем
+      // error.textContent = " ";
     }
   }
+  _showError(form, input,error) {
+    // добавим красную надпись если с инпутом все плохо
+    input.classList.add(this._inputErrorClass);
+    //добавим красную надпись если с инпутом все плохо
+    error.classList.add(this._errorClass);
+    // сообщение с ошибкой
+    error.textContent = input.validationMessage;
+  }
+
+  _hideError (form, input,error) {
+    //удалим красное подчеркивание если с инпутом все ок
+    input.classList.remove(this._inputErrorClass);
+    //удалим красную надпись если с инпутом все ок
+    error.classList.remove(this._errorClass);
+    // сообзение с ошибкой скроем
+    error.textContent = " ";
+
+  }
+  
 
   // установим обработчики для валидации попап инпут
   _setHendlers(form) {
