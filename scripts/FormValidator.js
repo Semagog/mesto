@@ -11,14 +11,14 @@ export default class FormValidator {
     this._formElement = formElement;
   }
   //Меняет кнопку на доступную недоступную в зависимости от валидации
-  _setButtonStates(inputs, button) {
-    const hasErrors = inputs.some((input) => !input.validity.valid);
+  _setButtonStates() {
+    const hasErrors = this._inputs.some((input) => !input.validity.valid);
     if (hasErrors) {
-      button.setAttribute("disabled", true);
-      button.classList.add(this._inactiveButtonClass);
+      this._button.setAttribute("disabled", true);
+      this._button.classList.add(this._inactiveButtonClass);
     } else {
-      button.removeAttribute("disabled", true);
-      button.classList.remove(this._inactiveButtonClass);
+      this._button.removeAttribute("disabled", true);
+      this._button.classList.remove(this._inactiveButtonClass);
     }
   }
   // функция проверят правильность веденных данных
@@ -53,24 +53,24 @@ export default class FormValidator {
 
   // установим обработчики для валидации попап инпут
   _setHendlers() {
-    const inputs = Array.from(this._form.querySelectorAll(this._input));
+    this._inputs = Array.from(this._form.querySelectorAll(this._input));
     // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
-    const button = this._form.querySelector(this._submit);
+    this._button = this._form.querySelector(this._submit);
     // пробежимся for each что бы проверять каждую форму в момент ввода
     const currentObject = this;
-    inputs.forEach((input) => {
+    this._inputs.forEach((input) => {
       input.addEventListener("input", function () {
         // запускаем проверку инпутов
         currentObject._validateInput(input);
         // запускаем проверку кнопки
-        currentObject._setButtonStates(inputs, button);
+        currentObject._setButtonStates();
       });
     });
     /// После сабмита ловим событие ресет и ставим 0 милисекунд что бы форма стала в стоковое состояние
     this._form.addEventListener("reset", () => {
       // `setTimeout` нужен для того, чтобы дождаться очищения формы (вызов уйдет в конце стэка) и только потом вызвать `toggleButtonState`
       setTimeout(() => {
-        this._setButtonStates(inputs, button);
+        this._setButtonStates();
       }, 0); // достаточно указать 0 миллисекунд, чтобы после `reset` уже сработало действие
     });
   }
