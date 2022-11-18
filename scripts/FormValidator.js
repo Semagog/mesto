@@ -57,7 +57,7 @@ export default class FormValidator {
     // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
     const button = form.querySelector(this._submit);
     // пробежимся for each что бы проверять каждую форму в момент ввода
-    let currentObject = this;
+    const currentObject = this;
     inputs.forEach((input) => {
       input.addEventListener("input", function () {
         // запускаем проверку инпутов
