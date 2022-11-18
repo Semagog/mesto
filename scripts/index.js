@@ -38,18 +38,17 @@ const validationConfig = {
 
 const container = document.querySelector(".elements__cards");
 function generateCard(item) {
-  const card = new Card(item, ".template-card",handleOpenImage);
+  const card = new Card(item, ".template-card", handleOpenImage);
   const cardElement = card.generateCard();
   return cardElement;
 }
-function validationActive (validationConfig,formElement) {
-  const popupValidate = new FormValidator(validationConfig,formElement);
+function validationActive(validationConfig, formElement) {
+  const popupValidate = new FormValidator(validationConfig, formElement);
   popupValidate.enableValidation();
 }
 
-validationActive(validationConfig,'.popup__container_type_profile')
-validationActive(validationConfig,'.popup__container_type_add-card')
-
+validationActive(validationConfig, ".popup__container_type_profile");
+validationActive(validationConfig, ".popup__container_type_add-card");
 
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
@@ -200,7 +199,7 @@ const popupShowImageDescription = document.querySelector(".popup__description");
 //   popupShowImageDescription.textContent = cardData.name;
 // };
 
-export function handleOpenImage(link, name){
+export function handleOpenImage(link, name) {
   openPopup(popupShowImage);
   popupShowImageSelected.src = link;
   popupShowImageSelected.alt = name;
@@ -208,4 +207,3 @@ export function handleOpenImage(link, name){
 }
 // Обработчик добавления карточки
 popupAddCardForm.addEventListener("submit", handleSubmitAddCardForm);
-

@@ -57,13 +57,12 @@ export default class FormValidator {
     // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
     this._button = this._form.querySelector(this._submit);
     // пробежимся for each что бы проверять каждую форму в момент ввода
-    const currentObject = this;
     this._inputs.forEach((input) => {
-      input.addEventListener("input", function () {
+      input.addEventListener("input", () => {
         // запускаем проверку инпутов
-        currentObject._validateInput(input);
+        this._validateInput(input);
         // запускаем проверку кнопки
-        currentObject._setButtonStates();
+        this._setButtonStates();
       });
     });
     /// После сабмита ловим событие ресет и ставим 0 милисекунд что бы форма стала в стоковое состояние
@@ -77,11 +76,11 @@ export default class FormValidator {
 
   //  проверяет валидацию для всех поп ап
   enableValidation() {
-    this._form = document.querySelector(this._formElement)
-    this._setHendlers(this._form)
-  //   const forms = Array.from(document.querySelectorAll(this._popupForm));
-  //   forms.forEach((form) => {
-  //     this._setHendlers(form);
-  //   });
+    this._form = document.querySelector(this._formElement);
+    this._setHendlers(this._form);
+    //   const forms = Array.from(document.querySelectorAll(this._popupForm));
+    //   forms.forEach((form) => {
+    //     this._setHendlers(form);
+    //   });
   }
 }
