@@ -43,8 +43,8 @@ function generateCard(item) {
   return cardElement;
 }
 function validationActive(validationConfig, formElement) {
-  const popupValidate = new FormValidator(validationConfig, formElement);
-  popupValidate.enableValidation();
+  const formValidate = new FormValidator(validationConfig, formElement);
+  formValidate.enableValidation();
 }
 
 validationActive(validationConfig, ".popup__container_type_profile");
