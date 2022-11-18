@@ -42,6 +42,15 @@ function generateCard(item) {
   const cardElement = card.generateCard();
   return cardElement;
 }
+function validationActive (validationConfig,formElement) {
+  const popupValidate = new FormValidator(validationConfig,formElement);
+  popupValidate.enableValidation();
+}
+
+validationActive(validationConfig,'.popup__container_type_profile')
+validationActive(validationConfig,'.popup__container_type_add-card')
+
+
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
   // // Создадим экземпляр карточки
@@ -200,5 +209,3 @@ export function handleOpenImage(link, name){
 // Обработчик добавления карточки
 popupAddCardForm.addEventListener("submit", handleSubmitAddCardForm);
 
-const popupProfile = new FormValidator(validationConfig);
-popupProfile.enableValidation();
