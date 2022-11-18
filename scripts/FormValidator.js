@@ -77,12 +77,11 @@ export default class FormValidator {
 
   //  проверяет валидацию для всех поп ап
   enableValidation() {
-    const forms = Array.from(document.querySelectorAll(this._popupForm));
-    forms.forEach((form) => {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-      });
-      this._setHendlers(form);
-    });
+    this._form = document.querySelector(this._formElement)
+    this._setHendlers(this._form)
+  //   const forms = Array.from(document.querySelectorAll(this._popupForm));
+  //   forms.forEach((form) => {
+  //     this._setHendlers(form);
+  //   });
   }
 }
