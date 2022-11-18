@@ -22,16 +22,16 @@ export default class FormValidator {
     }
   }
   // функция проверят правильность веденных данных
-  _validateInput(form, input) {
+  _validateInput(input) {
     if (!input.validity.valid) {
-      this._showError(form, input);
+      this._showError(input);
     } else {
-      this._hideError(form, input);
+      this._hideError(input);
     }
   }
-  _showError(form, input) {
+  _showError(input) {
     // создадим красную надпись внизу инпута
-    const error = form.querySelector(`.${input.id}-error`);
+    const error = this._form.querySelector(`.${input.id}-error`);
     // добавим красную надпись если с инпутом все плохо
     input.classList.add(this._inputErrorClass);
     //добавим красную надпись если с инпутом все плохо
@@ -40,9 +40,9 @@ export default class FormValidator {
     error.textContent = input.validationMessage;
   }
 
-  _hideError(form, input) {
+  _hideError(input) {
     // создадим красную надпись внизу инпута
-    const error = form.querySelector(`.${input.id}-error`);
+    const error = this._form.querySelector(`.${input.id}-error`);
     //удалим красное подчеркивание если с инпутом все ок
     input.classList.remove(this._inputErrorClass);
     //удалим красную надпись если с инпутом все ок
@@ -52,22 +52,22 @@ export default class FormValidator {
   }
 
   // установим обработчики для валидации попап инпут
-  _setHendlers(form) {
-    const inputs = Array.from(form.querySelectorAll(this._input));
+  _setHendlers() {
+    const inputs = Array.from(this._form.querySelectorAll(this._input));
     // const button = Array.from(form.querySelectorAll(config.submitButtonSelector))
-    const button = form.querySelector(this._submit);
+    const button = this._form.querySelector(this._submit);
     // пробежимся for each что бы проверять каждую форму в момент ввода
     const currentObject = this;
     inputs.forEach((input) => {
       input.addEventListener("input", function () {
         // запускаем проверку инпутов
-        currentObject._validateInput(form, input);
+        currentObject._validateInput(input);
         // запускаем проверку кнопки
         currentObject._setButtonStates(inputs, button);
       });
     });
     /// После сабмита ловим событие ресет и ставим 0 милисекунд что бы форма стала в стоковое состояние
-    form.addEventListener("reset", () => {
+    this._form.addEventListener("reset", () => {
       // `setTimeout` нужен для того, чтобы дождаться очищения формы (вызов уйдет в конце стэка) и только потом вызвать `toggleButtonState`
       setTimeout(() => {
         this._setButtonStates(inputs, button);
