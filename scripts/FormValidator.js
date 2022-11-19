@@ -8,7 +8,7 @@ export default class FormValidator {
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
-    this._formElement = formElement;
+    this._form = formElement;
   }
   //Меняет кнопку на доступную недоступную в зависимости от валидации
   _setButtonStates() {
@@ -76,7 +76,7 @@ export default class FormValidator {
 
   //  проверяет валидацию для всех поп ап
   enableValidation() {
-    this._form = document.querySelector(this._formElement);
+    // this._form = document.querySelector(this._formElement);
     this._setHendlers(this._form);
     //   const forms = Array.from(document.querySelectorAll(this._popupForm));
     //   forms.forEach((form) => {

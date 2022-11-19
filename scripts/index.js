@@ -35,6 +35,10 @@ const validationConfig = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
+const profileForm = document.querySelector(".popup__container_type_profile");
+const popupAddCardForm = document.querySelector(
+  ".popup__container_type_add-card"
+);
 
 const container = document.querySelector(".elements__cards");
 function generateCard(item) {
@@ -47,8 +51,8 @@ function validationActive(validationConfig, formElement) {
   formValidate.enableValidation();
 }
 
-validationActive(validationConfig, ".popup__container_type_profile");
-validationActive(validationConfig, ".popup__container_type_add-card");
+validationActive(validationConfig, profileForm);
+validationActive(validationConfig, popupAddCardForm);
 
 // Добавляет карточку из Массива
 initialCards.forEach((item) => {
@@ -89,8 +93,6 @@ const gapProfileJob = document.querySelector(".profile__subtitle");
 // переменные для второго попапа
 const buttonOpenAddCard = document.querySelector(".profile__add-button");
 const popupAddCardOpen = document.querySelector(".popup_add-card");
-// Находим форму в DOM
-const profileForm = document.querySelector(".popup__container_type_profile"); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 const nameInput = profileForm.querySelector(".popup__input_profilename"); // Воспользуйтесь инструментом .querySelector()
 const jobInput = profileForm.querySelector(".popup__input_profilejob"); // Воспользуйтесь инструментом .querySelector()
@@ -177,9 +179,7 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 // DOM элементы
 const cardsContainer = document.querySelector(".elements__cards");
-const popupAddCardForm = document.querySelector(
-  ".popup__container_type_add-card"
-);
+
 const inputTitleAddCardForm = document.querySelector(
   ".popup__input_titleaddcard"
 );
