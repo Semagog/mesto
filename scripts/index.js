@@ -72,7 +72,7 @@ const handleSubmitAddCardForm = (event) => {
   };
   // const userCard = new Card(userCardData,'.template-card');
   // const userCardElement = userCard.generateCard();
-  generateCard(userCardData);
+  // generateCard(userCardData);
   // const imageCard = userCardElement.querySelector(".element__image");
   // imageCard.addEventListener("click", () => handleOpenImage(userCardData));
   // Добавляем в DOM

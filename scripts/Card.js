@@ -43,7 +43,6 @@ export default class Card {
     // Вернём элемент наружу
     return this._element;
   }
-  _openBigImage() {}
   // добавили метод _handleCardLike
   _handleCardLike() {
     this._buttonLike.classList.toggle("element__liked");
