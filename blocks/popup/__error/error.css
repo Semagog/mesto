@@ -7,5 +7,5 @@
   color: #ff0000;
   padding-top: 5px;
   display: block;
-  max-height: 30px;
+  min-height: 30px;
 }
